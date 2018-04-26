@@ -2,7 +2,8 @@
   "name": "jg-site",
   "version": "0.0.1",
   "devDependencies": {
-    "webpack": "^4.1.1"
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.15"
   },
   "dependencies": {
     "moment": "^2.22.1",

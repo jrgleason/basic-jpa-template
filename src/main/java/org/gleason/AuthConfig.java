@@ -17,10 +17,9 @@ import java.io.UnsupportedEncodingException;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AuthConfig extends WebSecurityConfigurerAdapter {
     private static final String[] NO_AUTH = {
-            "/callback",
-            "/login",
             "/",
-            "/logout2"
+            "/bundle.js",
+            "/login"
     };
     private static final String[] AUTH = {
             "/**"

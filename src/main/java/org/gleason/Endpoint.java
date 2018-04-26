@@ -1,6 +1,7 @@
 package org.gleason;
 
 import com.auth0.IdentityVerificationException;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -9,21 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.security.Principal;
 
-@RestController
+@Controller
 public class Endpoint{
 	@Autowired
 	private AuthenticationService authService;
-	@Autowired
-	private UserRepoService service;
+
 
 	@GetMapping("")
 	String get(final Principal principal){
-		if(principal instanceof TokenAuthentication){
-			return ((TokenAuthentication)principal).getUsername();
-		}
-		else{
-			return "Not logged in";
-		}
+		return "index";
 	}
 
 	@GetMapping("/login")
@@ -41,11 +36,7 @@ public class Endpoint{
 		res.sendRedirect("https://jackiergleason.auth0.com/v2/logout");
 	}
 
-	@GetMapping("/dynamo")
-	protected String getDynamo(final Principal principal){
-		String email = ((TokenAuthentication)principal).getUsername();
-		return service.getUser(email).toString();
-	}
+
 
 	private void invalidateSession(HttpServletRequest request) {
 		if (request.getSession() != null) {
