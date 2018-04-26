@@ -24,3 +24,4 @@ build
 .gradle
 auth0.properties
 dist
+package-lock.json
