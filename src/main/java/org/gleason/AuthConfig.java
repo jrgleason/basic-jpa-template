@@ -19,7 +19,8 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
     private static final String[] NO_AUTH = {
             "/",
             "/bundle.js",
-            "/login"
+            "/login",
+            "/callback"
     };
     private static final String[] AUTH = {
             "/**"

@@ -21,6 +21,11 @@ public class Endpoint{
 		return "index";
 	}
 
+	@GetMapping("/ui")
+	String ui(){
+		return "forward:/";
+	}
+
 	@GetMapping("/login")
 	protected void login(final HttpServletRequest req, final HttpServletResponse http) throws IOException{
 		http.sendRedirect(authService.getUrl(req));

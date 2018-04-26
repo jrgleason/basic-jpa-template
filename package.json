@@ -6,14 +6,16 @@
     "@babel/preset-env": "^7.0.0-beta.46",
     "babel-loader": "^8.0.0-beta.2",
     "css-loader": "^0.28.11",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
     "style-loader": "^0.21.0",
     "vue-loader": "^15.0.1",
+    "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.6.0",
     "webpack-cli": "^2.0.15"
   },
   "dependencies": {
-
     "moment": "^2.22.1",
     "papaparse": "^4.4.0",
     "rxjs": "^6.0.0",
