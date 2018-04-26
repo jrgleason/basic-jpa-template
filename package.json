@@ -1,0 +1,14 @@
+{
+  "name": "jg-site",
+  "version": "0.0.1",
+  "devDependencies": {
+    "webpack": "^4.1.1"
+  },
+  "dependencies": {
+    "moment": "^2.22.1",
+    "papaparse": "^4.4.0",
+    "rxjs": "^6.0.0",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
+  }
+}

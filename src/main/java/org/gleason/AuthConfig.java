@@ -16,6 +16,15 @@ import java.io.UnsupportedEncodingException;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AuthConfig extends WebSecurityConfigurerAdapter {
+    private static final String[] NO_AUTH = {
+            "/callback",
+            "/login",
+            "/",
+            "/logout2"
+    };
+    private static final String[] AUTH = {
+            "/**"
+    };
     @Value(value = "${com.auth0.domain}")
     private String domain;
     @Value(value = "${com.auth0.clientId}")
@@ -27,8 +36,8 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http
                 .authorizeRequests()
-                .antMatchers("/callback", "/login","/", "/logout2").permitAll()
-                .antMatchers("/**").authenticated()
+                .antMatchers(NO_AUTH).permitAll()
+                .antMatchers(AUTH).authenticated()
                 .and()
                 .logout().permitAll();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER);
