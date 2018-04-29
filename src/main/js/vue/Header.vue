@@ -1,16 +1,23 @@
 <template lang="pug">
 div(class="jg-header")
 
-  md-button.md-icon-button(@click="showNavigation = !showNavigation")
+  md-button.md-icon-button(@click="toggle()")
       md-icon menu
-  h1 Second Ave
-  h2 showNavigation
+  h1 {{ greeting }}
 </template>
 <script>
 export default {
-    data: () => ({
-      showNavigation: false
-    })
+    data: function(){
+        return {
+            greeting: ""
+        }
+    },
+    methods: {
+        toggle: function(){
+            console.log("header toggling "+this.$data.showDrawer);
+            this.$data.showDrawer.next();
+        }
+    }
 }
 </script>
 <style scoped>

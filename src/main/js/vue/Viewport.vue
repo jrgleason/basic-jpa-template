@@ -1,12 +1,29 @@
 <template>
-    <div class="jg-viewport">
-          <jg-header></jg-header>
-          <jg-content></jg-content>
-    </div>
+    <md-app class="jg-viewport">
+        <md-app-toolbar class="md-primary">
+            <jg-header v-bind:greeting="greeting" v-bind:showDrawer="showDrawer()"></jg-header>
+        </md-app-toolbar>
+        <md-app-drawer :md-active.sync="menuVisible" md-persistent="full">
+            <h1> Drawer </h1>
+        </md-app-drawer>
+        <md-content>
+            <jg-content v-bind:showDrawer="showDrawer"></jg-content>
+        </md-content>
+    </md-app>
 </template>
 <script>
+import {Subject} from "rxjs/Rx";
 export default{
+   data: function(){
+       return {
+           greeting: "My Name",
+           menuVisible: false,
+           showDrawer: function(){
+               return new Subject();
+           }
+       }
 
+   }
 }
 </script>
 <styles scoped>

@@ -12,10 +12,9 @@ module.exports = {
       new VueLoaderPlugin()
   ],
   resolve: {
-       alias: {
+      alias: {
               'vue$': 'vue/dist/vue.esm.js'
-      },
-      extensions: ['*', '.js', '.vue', '.json']
+      }
   },
   module: {
     rules: [

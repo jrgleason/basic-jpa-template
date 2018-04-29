@@ -38,8 +38,8 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(NO_AUTH).permitAll()
                 .antMatchers(AUTH).authenticated()
-                .and()
-                .logout().permitAll();
+                .and().formLogin().loginPage("/login")
+                .and().logout().permitAll();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER);
     }
     @Bean
