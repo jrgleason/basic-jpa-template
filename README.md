@@ -2,4 +2,4 @@
 
 ## Table of contents
 
-1. (Prerequisites)[./docs/PREREQ.md]
+1. [Prerequisites](./docs/PREREQ.md)
