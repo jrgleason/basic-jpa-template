@@ -12,14 +12,14 @@
     </md-app>
 </template>
 <script>
-import {Subject} from "rxjs/Rx";
+import * as Rx from "rxjs/Rx";
 export default{
    data: function(){
        return {
            greeting: "My Name",
            menuVisible: false,
            showDrawer: function(){
-               return new Subject();
+               return new Rx.Subject();
            }
        }
 

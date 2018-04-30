@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @SpringBootApplication
 @EnableAutoConfiguration
 @PropertySources({
-//		@PropertySource("classpath:datasource.properties"),
+		@PropertySource("classpath:datasource.properties"),
 		@PropertySource("classpath:auth0.properties"),
 		@PropertySource("classpath:amazon.properties")
 })
