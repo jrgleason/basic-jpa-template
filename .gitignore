@@ -26,3 +26,4 @@ dist
 package-lock.json
 src/main/resources/static/bundle.js
 node_modules
+out
