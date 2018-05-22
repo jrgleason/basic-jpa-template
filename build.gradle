@@ -14,19 +14,55 @@ bootJar {
 	baseName = 'simple-jpa'
 	version = '0.0.1-SNAPSHOT'
 }
+// Because Intellij Sucks
+project.buildDir = './out'
 repositories {
     mavenCentral()
 }
+task npm(type:Exec) {
+    if(System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("windows")){
+        // commandLine "npm.cmd", "install"
+        workingDir = "${projectDir}"
+        executable = "npm.cmd"
+        args = ["install"]
+    } else{
+        // commandLine "npm", "install"
+        workingDir = "${projectDir}"
+        executable = "npm"
+        args = ["install"]
+    }
+}
+task webpack(type:Exec) {
+    if(System.getProperty("os.name").toLowerCase(Locale.ROOT).contains("windows")){
+        //commandLine "npm.cmd", "run", "webpack"
+        workingDir = "${projectDir}"
+        executable = "npm.cmd"
+        args = ["run", "webpack"]
+    } else{
+        // commandLine "npm", "run", "webpack"
+        workingDir = "${projectDir}"
+        executable = "npm"
+        args = ["run", "webpack"]
+    }
+}
+
+// webpack.dependsOn "npm"
+// processResources.dependsOn "webpack"
+// bootRun.dependsOn webpack
+
 dependencies {
-	compile 'org.springframework.boot:spring-boot-starter-web:2.0.1.RELEASE'
-	compile 'org.springframework.boot:spring-boot-starter-data-jpa:2.0.1.RELEASE'
-	compile 'org.postgresql:postgresql:42.2.2'
-	compile 'javax.xml.bind:jaxb-api:2.3.0'
-    compile "org.springframework.boot:spring-boot-starter-security:2.0.1.RELEASE"
-    compile 'com.auth0:mvc-auth-commons:1.+'
-    compile 'com.amazonaws:aws-java-sdk-s3:1.11.316'
-    compile 'com.amazonaws:aws-java-sdk-dynamodb:1.11.316'
-    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    compile 'org.apache.spark:spark-sql_2.11:2.3.0'
-    testCompile 'junit:junit:4.11'
+	compile 'org.springframework.boot:spring-boot-starter-web:latest.release'
+	compile 'org.springframework.boot:spring-boot-starter-data-jpa:latest.release'
+//    compile 'io.jsonwebtoken:jjwt:latest.release'
+	compile 'org.postgresql:postgresql:latest.release'
+	compile 'javax.xml.bind:jaxb-api:latest.release'
+    compile "org.springframework.boot:spring-boot-starter-security:latest.release"
+    compile 'com.amazonaws:aws-java-sdk-s3:latest.release'
+    compile 'com.amazonaws:aws-java-sdk-dynamodb:latest.release'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf:latest.release'
+    compile 'org.apache.spark:spark-sql_2.11:latest.release'
+    compile 'org.springframework.boot:spring-boot-starter-actuator:latest.release'
+//    compile 'com.auth0:auth0-spring-security-api:latest.release'
+    compile 'com.auth0:mvc-auth-commons:latest.release'
+    testCompile 'junit:junit:latest.release'
 }

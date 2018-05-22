@@ -1,16 +1,25 @@
-package org.gleason.coffeeshop.domain;
+package org.gleason.authorization.domain;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "PERSON", schema = "MAIN")
+@Table(schema = "AUTH")
 public class Permission {
+    @Id
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
     private String name;
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "ROLE_PERMISSION",
+            joinColumns = @JoinColumn(name = "PERMISSION_ID"),
+            inverseJoinColumns = @JoinColumn(name = "ROLE_ID")
+    )
+    private List<Role> roles;
 }

@@ -1,4 +1,7 @@
 package org.gleason.authorization.repo;
 
-public class RoleRepo {
+import org.gleason.authorization.domain.Role;
+import org.springframework.data.repository.CrudRepository;
+
+public interface RoleRepo extends CrudRepository<Role, String> {
 }

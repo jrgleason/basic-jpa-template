@@ -16,7 +16,7 @@ public class SecureEndpoint {
     @GetMapping("/dynamo")
     @ResponseBody
     protected String getDynamo(final Principal principal){
-        String email = ((TokenAuthentication)principal).getUsername();
-        return service.getUser(email).toString();
+//        String email = ((TokenAuthentication)principal).getUsername();
+        return service.getUser("test").toString();
     }
 }

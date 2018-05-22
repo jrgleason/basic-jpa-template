@@ -1,6 +1,9 @@
 {
   "name": "jg-site",
   "version": "0.0.1",
+  "scripts": {
+    "webpack": "./node_modules/.bin/webpack"
+  },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.46",
     "@babel/preset-env": "^7.0.0-beta.46",
@@ -22,6 +25,7 @@
     "rxjs": "^6.0.0",
     "vue": "^2.5.16",
     "vue-material": "^1.0.0-beta-8",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vue-rx": "^5.0.0"
   }
 }

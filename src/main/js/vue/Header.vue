@@ -4,30 +4,25 @@ div(class="jg-header")
   md-button.md-icon-button(@click="toggle()")
       md-icon menu
   h1 {{ greeting }}
+  h2 {{ subject }}
 </template>
 <script>
 export default {
     data: function(){
-        return {
-            greeting: ""
-        }
+           return {
+               test: 1
+           }
     },
+    props: ['greeting', 'subject'],
     methods: {
         toggle: function(){
-            console.log("header toggling "+this.$data.showDrawer);
-            this.$data.showDrawer.next();
+            window.menuSubject.next();
         }
     }
 }
 </script>
 <style scoped>
 .jg-header{
-    height: 40px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    background-color: green;
     z-index:1000;
     display:flex;
     align-items: center;

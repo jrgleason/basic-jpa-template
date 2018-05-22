@@ -1,34 +1,42 @@
 <template>
-    <md-app class="jg-viewport">
-        <md-app-toolbar class="md-primary">
-            <jg-header v-bind:greeting="greeting" v-bind:showDrawer="showDrawer()"></jg-header>
-        </md-app-toolbar>
-        <md-app-drawer :md-active.sync="menuVisible" md-persistent="full">
-            <h1> Drawer </h1>
-        </md-app-drawer>
+    <div class="page-container md-layout-column jg-viewport">
+        <md-toolbar class="md-primary">
+            <jg-header :greeting="greeting"></jg-header>
+        </md-toolbar>
+        <md-drawer :md-active.sync="showNavigation">
+            <md-toolbar class="md-transparent" md-elevation="0">
+                 <span class="md-title">My App name</span>
+            </md-toolbar>
+        </md-drawer>
         <md-content>
-            <jg-content v-bind:showDrawer="showDrawer"></jg-content>
+            <jg-content></jg-content>
         </md-content>
-    </md-app>
+    </div>
 </template>
 <script>
-import * as Rx from "rxjs/Rx";
 export default{
+   created(){
+       window.menuSubject.subscribe(() =>{
+           this.$data.showNavigation = !this.$data.showNavigation;
+       });
+   },
    data: function(){
        return {
            greeting: "My Name",
-           menuVisible: false,
-           showDrawer: function(){
-               return new Rx.Subject();
-           }
+           showNavigation: false
        }
-
    }
 }
 </script>
 <styles scoped>
+.md-toolbar.md-primary{
+    background-color: green;
+}
+.md-content{
+    background-color: blue;
+    overflow: auto;
+}
 .jg-viewport{
-    height: 100%;
-    width: 100%;
+    overflow: hidden;
 }
 </styles>
